@@ -1,0 +1,19 @@
+{% extends "page.html" %}
+{% block content %}
+{% for hero in heroSelect %}
+<table style="margin: auto">
+    <tr>
+        <td colspan="2" style="text-align: center;"><h1>{{hero.name}}</h1></td>
+    </tr>
+    <tr>
+        <td style="padding-right: 75px"><img src="../../static/{{ hero.picture }}" style="border: 2px solid rgb(82, 71, 89);" height="450" width="309"/></td>
+        <td style="padding-left: 100px;">
+            <p style="color: rgb(131, 160, 173); font-size: 30px; ">
+                Game Origin: {{hero.game}} <br />
+                Hero Class: {{hero.hero_class}}
+            </p>
+        </td>
+    </tr>
+</table>
+{% endfor %}
+{% endblock %}

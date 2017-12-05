@@ -1,0 +1,24 @@
+<style>
+    a:link {color: white}
+    a:visited {color: white}
+    a:hover {color: aqua}
+    a {text-decoration: none}
+</style>
+{% extends "base.html" %} 
+{% block heroes %} 
+    <tr>
+    {% for hero in heroes %}
+    <td style="text-align: center; padding-top: 25px;">
+        <a href="hero/{{ hero.name }}">
+        <img src="static/{{ hero.picture }}" style="border: 2px solid rgb(82, 71, 89);" height="300" width="206"/><br />
+        <span style="font-size: 16pt;">{{ hero.name }}</span></a>
+        </td>
+        {% if forloop.last %}
+            </tr>
+        {% else %}
+        {% if forloop.counter|divisibleby:"3" %}
+            </tr><tr>
+        {% endif %}
+        {% endif %}
+    {% endfor %} 
+{% endblock %}

@@ -1,0 +1,53 @@
+<html>
+<head>
+<style type="text/css">
+    #logo {display: block;
+    margin: auto;
+    width: auto;}
+    #logo_container {width: 20%; margin: auto;}
+body { background-image: url("http://i.imgur.com/cNCwjNH.jpg"); background-repeat: no-repeat; background-position: left top; background-size: contain; background-color: rgb(19, 13, 30);}
+div.main { padding-left: 200px; padding-right: 200px;}
+td { vertical-align: top; }
+h1 { background-color: clear; text-align: center; font-size: 50pt; color: white; }
+    form#searchbar {text-align: right;}
+
+    td#filterform{border: 1px solid lightgrey;}
+</style>
+</head>
+<body>
+    <table id="logo_container">
+        <tr><td>
+        <a href="http://localhost:8000/"><img id="logo" src="https://upload.wikimedia.org/wikipedia/en/4/44/Heroes_of_the_Storm_logo_2016.png"/></a>
+        </td></tr>
+    </table>
+<div class="main" id="main">
+    <form action="/" method="get" id="filter">{% csrf_token %}
+        <table id="filterform">
+            <tr style="color:white;">
+                <td id="filterform"><input type="radio" name="game_from" value="Warcraft"> Warcraft</td>
+                <td id="filterform"><input type="radio" name="game_from" value="StarCraft"> StarCraft</td>
+                <td id="filterform"><input type="radio" name="game_from" value="Diablo"> Diablo</td>
+                <td id="filterform"><input type="radio" name="game_from" value="Overwatch"> Overwatch</td>
+                <td id="filterform"><input type="radio" name="game_from" value="Classic"> Classic</td>
+                <td id="filterform"><input type="radio" name="game_from" value="None" checked> None</td>
+            </tr>
+            <tr style="color:white">
+                <td id="filterform"><input type="radio" name="class" value="Assassin"> Assassin</td>
+                <td id="filterform"><input type="radio" name="class" value="Tank"> Tank</td>
+                <td id="filterform"><input type="radio" name="class" value="Support"> Support</td>
+                <td id="filterform"><input type="radio" name="class" value="Specialist"> Specialist</td>
+                <td id="filterform"><input type="radio" name="class" value="None" checked> None</td>
+            </tr>
+            <tr><td><input type="submit" value="Filter"></td></tr>
+        </table>
+    </form>
+    <form action="/" method="get" id="searchbar">{% csrf_token %}
+        <input size="50" type="text" name="searchstring" value="">
+        <input type="submit" value="Submit">
+    </form> 
+{% block content %}
+{% endblock %}
+{% csrf_token %}
+</div>
+</body>
+</html>
